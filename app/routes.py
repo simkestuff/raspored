@@ -31,14 +31,11 @@ def tomorrow_timetable():
     tomorrow_schedule = database.get_schedule_for(core.day_name(False), schedule_type)
     return tomorrow_schedule
 
-@router.get("/tjedan", response_model=models.WeekSchedule)
-def current_week():
-    week_number = core.get_week_no()
-    schedule_type = database.get_schedule(week_number)
-    return models.WeekSchedule(schedule=database.get_week_schedule(schedule_type))
-
-@router.get("/sljedeci", response_model=models.WeekSchedule)
-def next_week():
-    week_number = core.get_week_no() + 1
+@router.get("/tjedan/{id}", response_model=models.WeekSchedule)
+def get_week(id: int):
+    if id == 0:
+        week_number = core.get_week_no()
+    elif id == 1:
+        week_number = core.get_week_no() + 1
     schedule_type = database.get_schedule(week_number)
     return models.WeekSchedule(schedule=database.get_week_schedule(schedule_type))
