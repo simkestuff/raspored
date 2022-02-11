@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>dnevni raspored</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>Raspored za {{ dan }}</h1>
+    <ul>
+        {% for sat in sati %}
+        <li>{{sat}}</li>
+        {% endfor %}
+      </ul>
+    <a href="/">Natrag</a>
+</body>
+</html>

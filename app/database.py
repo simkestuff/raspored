@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List, Optional, Dict
 from pymongo import MongoClient
 
 from .config import settings
@@ -26,7 +26,7 @@ def get_schedule(from_week: int) -> Optional[str]:
     return None
 
 
-def get_schedule_for(day_name: str, schedule_name: str) -> Optional[List[str]]:
+def get_schedule_for(day_name: str, schedule_name: str):
     """
     Connects to database and return schedule for given day name and schedule name.
     Return value is list of classes or None.
