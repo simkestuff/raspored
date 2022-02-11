@@ -2,12 +2,13 @@
 <head>
     <title>dnevni raspored</title>
     <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
 </head>
 <body>
-    <h1>Tjedni raspored</h1>
+    <h1 style="font-size:10vw">Tjedni raspored</h1>
     <ul>
         {% for dan in week_list %}
-            <h2>{{ dan.hr_day }}</h2>
+            <h2 style="font-size:7vw">{{ dan.hr_day }}</h2>
             {% for sat in dan.classes %}
                 <li>{{ sat }}</li>
             {% endfor %}
